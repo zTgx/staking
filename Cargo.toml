@@ -1,0 +1,13 @@
+[package]
+name = "staking"
+version = "0.0.1"
+authors = ["zTgx <747674262@qq.com>"]
+readme = "README.md"
+license = "MIT"
+repository = "https://github.com/zTgx/staking"
+categories = ["cryptography"]
+keywords = ["cryptography", "staking"]
+description = "A pure-Rust implementation of staking"
+edition = "2018"
+
+[dependencies]

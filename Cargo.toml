@@ -11,3 +11,4 @@ description = "A pure-Rust implementation of staking"
 edition = "2018"
 
 [dependencies]
+bytes = "1.1.0"

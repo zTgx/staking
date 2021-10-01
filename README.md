@@ -1,2 +1,4 @@
 # staking
-✨ A Demo
+✨ A stateless staking crate!
+
+# WIP

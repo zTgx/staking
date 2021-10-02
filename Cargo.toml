@@ -1,5 +1,5 @@
 [package]
-name = "staking"
+name = "staking-rs"
 version = "0.0.1"
 authors = ["zTgx <747674262@qq.com>"]
 readme = "README.md"

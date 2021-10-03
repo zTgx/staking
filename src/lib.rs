@@ -10,6 +10,7 @@ pub mod consensus;
 pub mod handler;
 pub mod storage;
 pub mod context;
+mod impls;
 
 #[derive(Debug, Default)]
 pub struct Staking <C> {
@@ -72,20 +73,29 @@ impl <C: context::Context> Staking <C> {
         }
     }
 
+    pub fn pre_stake(&self) -> bool {
+        println!("### staking - pre stake");
+        self.context.pre_check()
+    }
+
     /// stake
     /// 1. [node] stake N amounts to become validator( or miner )
     /// 2. [staker] delegate M amounts to validator
-    pub fn stake(&self, validator: &String, amount: u64) -> bool {
-        info!("validator: {}", validator);
-        info!("amount : {}", amount);
-        println!("limits: {}", self.context.limits());
+    pub fn stake(&self, target: &String, amount: u64) -> bool {
+        println!("### staking - stake");
+
+        println!("stake to validator : {}", target);
+        
+        let stake_type = self.check_stake_type(amount);
+        println!("stake type : {}", stake_type);
 
         true
     }
+
+    pub fn end_stake(&self) {
+        println!("### staking - end stake");
+    }
 }
-
-
-
 
 /////////////////////////////////////////
 pub fn hello() {

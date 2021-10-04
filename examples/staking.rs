@@ -3,8 +3,10 @@ use log::info;
 use staking_rs::{
     context::Context,
     Staking,
+    handler::Handler,
 };
 
+#[derive(Debug)]
 struct StakingContext {}
 impl StakingContext {
     pub fn new() -> Self {
@@ -24,6 +26,16 @@ impl Context for StakingContext {
     fn pre_check(&self) -> bool {
         // diff(network_height, local_height) < 3
         true
+    }
+
+    fn is_public_stake_pool(&self) -> bool {
+        true
+    }
+}
+
+impl Handler for StakingContext {
+    fn do_stake(&self) {
+        println!("### do stake : {:?}", self);
     }
 }
 

@@ -53,7 +53,7 @@ pub struct Staking <C> {
     pub context : C,
 }
 
-impl <C: context::Context> Staking <C> {
+impl <C: handler::Handler + context::Context> Staking <C> {
     pub fn new(context: C) -> Self {
         Self::new_with_context(context)
     }
@@ -85,10 +85,9 @@ impl <C: context::Context> Staking <C> {
         println!("### staking - stake");
 
         println!("stake to validator : {}", target);
-        
-        let stake_type = self.check_stake_type(amount);
-        println!("stake type : {}", stake_type);
 
+        self.context.do_stake();
+    
         true
     }
 

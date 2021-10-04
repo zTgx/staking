@@ -12,4 +12,8 @@ pub trait Context {
 
     /// pre check
     fn pre_check(&self) -> bool;
+
+    /// stake type : public or private
+    /// aka: stake yourself or stake to validator
+    fn is_public_stake_pool(&self) -> bool;
 }

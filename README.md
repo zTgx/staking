@@ -9,3 +9,10 @@
 ./a.sh 
 ```
 
+#### actions
+* stake
+* unstake
+* append
+* update
+* claim
+* info

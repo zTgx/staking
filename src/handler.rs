@@ -7,4 +7,7 @@ pub trait Handler {
 
     /// doStake
     fn do_stake(&self);
+
+    /// doUnstake
+    fn do_unstake(&self, amount: u64);
 }

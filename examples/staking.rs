@@ -4,6 +4,7 @@ use staking_rs::{
     context::Context,
     Staking,
     handler::Handler,
+    Callable,
 };
 
 #[derive(Debug)]
@@ -37,6 +38,10 @@ impl Handler for StakingContext {
     fn do_stake(&self) {
         println!("### do stake : {:?}", self);
     }
+
+    fn do_unstake(&self, amount: u64) {
+        println!("### do un-stake amount : {}", amount);
+    }
 }
 
 pub fn main() {
@@ -47,6 +52,9 @@ pub fn main() {
     
     let res = staking.stake(&"xxx".to_owned(), 8_u64);
     info!("res : {:?}", res);
+    let res = staking.unstake(3_u64);
+    println!("unstake res : {}", res);
 
-    staking.end_stake();
+    let c = Callable::Stake;
+    staking.call(c);
 }

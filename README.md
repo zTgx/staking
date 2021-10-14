@@ -7,3 +7,8 @@
 ```shell
 ./a.sh 
 ```
+
+#### actions
+* stake
+* unstake
+* govern

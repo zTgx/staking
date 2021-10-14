@@ -12,6 +12,11 @@ pub mod storage;
 pub mod context;
 mod impls;
 
+pub enum Callable {
+    Stake,
+    Unstake,
+}
+
 #[derive(Debug, Default)]
 pub struct Staking <C> {
     /// enable staking or not
@@ -90,6 +95,28 @@ impl <C: handler::Handler + context::Context> Staking <C> {
     
         true
     }
+
+    /// unstake
+    pub fn unstake(&self, amount: u64) -> bool {
+        self.context.do_unstake(amount);
+
+        true
+    }
+
+    pub fn call(&self, callable: Callable) {
+        match callable {
+            Callable::Stake => {
+                println!("call stake.");
+            },
+            Callable::Unstake => {
+                println!("call unstake.");
+            }
+        }
+    }
+
+
+
+
 
     pub fn end_stake(&self) {
         println!("### staking - end stake");

@@ -1,5 +1,5 @@
 # staking
-✨ A stateless staking crate!
+✨ A staking based on [tendermiint](https://github.com/tendermint/tendermint)
 
 # WIP
 
@@ -8,7 +8,3 @@
 ./a.sh 
 ```
 
-#### actions
-* stake
-* unstake
-* govern
